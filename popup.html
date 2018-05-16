@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title>RSS New Tab Settings</title>
+	<link href="style.css" rel="stylesheet" />
+</head>
+<body>
+	<header>
+		<span class="pull-right"><button id="btnSettings" title="Settings"><span class="icon-gear"></span></button></span>
+	
+		<h1>RSS New Tab: Feeds</h1>
+	</header>
+
+	<div class="clearfix" id="settings" style="padding-top:5px; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #000; display: none;">
+		<div class="left half">
+			Layout: &nbsp;&nbsp;
+			<button type="button" class="toggle-button" id="btnGrid">Grid</button>
+			<button type="button" class="toggle-button" id="btnList">List</button>
+		</div>
+		<div class="right half">
+			Items to show: <input type="number" id="items" class="small" value="" maxLength="99" /> 
+		</div>
+	</div>
+	
+	
+	<div id="feedList" style="clear:both;"></div>
+	
+	<div id="divNew">
+		<input type="text" placeholder="Name" id="txtName" />
+		<input type="text" placeholder="URL" id="txtURL" />
+		<div class="pull-right">
+			Banner Color: <input type="text" value="#ffffff" class="small colorPicker" />
+		</div>
+		<div class="clear"></div>
+		<div class="buttons">
+			<button id="btnSave" class="btn primary half">Save</button>
+			<button id="btnCancel" class="btn danger half">Cancel</button>
+		</div>
+	</div>
+	<div>
+		<button id="btnAdd" class="btn primary long">Add new feed</button>
+	</div>
+	
+	<div id="colorPicker" style="width: 210px; overflow: hidden; max-height: 0; transition: all 0.5s; background: #fff; position: absolute;">
+		<div style="padding: 10px; border: 1px solid #aaa;">
+			<div>
+				<canvas id="shade" width="150" height="150" style="width: 150px; height: 150px; display: inline-block; border: 1px solid #aaa;"></canvas>
+				<canvas id="color" width="30" height="150" style="width: 30px; height: 150px; display: inline-block; border: 1px solid #aaa;"></canvas>
+			</div>
+			<div>
+				<div id="divColor" style="border: 1px solid #aaa; background: #f00; width: 30px; float: left; height: 29px;"></div>
+				<input type="text" id="txtColor" value="#FFFFFF" style="display: block; float: right; margin: 0; width: 150px; padding: 6px;" />
+				<div style="clear:both"></div>
+			</div>
+			<div>
+			<button id="btnOK" style="margin-top: 5px; width: 100%;">OK</button>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="popup.js"></script>
+	
+</body>
+</html>

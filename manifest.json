@@ -1,0 +1,22 @@
+{
+	"manifest_version": 2,
+	"name": "RSS New Tab",
+	"description": "Allows customisation of adding RSS feeds to the new tab screen.",
+	"version": "1.0",
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"permissions": [
+		"activeTab",
+		"history",
+		"tabs",
+		"storage",
+		"chrome://favicon/*",
+		"http://itemise.me/rssgen.php"
+	],
+	
+	"chrome_url_overrides" : {
+		"newtab": "newtab.html"
+	}
+}
