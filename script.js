@@ -42,13 +42,15 @@ function getHistory() {
 		});
 		var i = 0;
 		while (lists.Common.length < maxRecent) {
-			var url = breakURL(data[i].url);
-			if (commonDomains.indexOf(url.scheme+url.host) == -1){
-				commonDomains.push(url.scheme+url.host);
-				lists.Common.push(data[i]);
+			if (data[i]) {
+				var url = breakURL(data[i].url);
+				if (commonDomains.indexOf(url.scheme+url.host) == -1){
+					commonDomains.push(url.scheme+url.host);
+					lists.Common.push(data[i]);
+				}
+				i++;
+				if (i >= data.length) { break; }
 			}
-			i++;
-			if (i >= data.length) { break; }
 		}
 		
 		//  Out put the history sections
@@ -118,6 +120,7 @@ function fetchRSS(feeds){
 				}
 			} catch (e) {
 				newsSections.appendChild(render("<div class='error'>An error occured trying to get feeds.</div>"));
+				console.log(e);
 			}
 		};
 	}
@@ -136,9 +139,9 @@ getHistory();
 
 var defaultFeeds = {
 	"BBC": {url: "http://feeds.bbci.co.uk/news/technology/rss.xml", color: "#BB1919"},
-	"Mashable": {url: "http://feeds.mashable.com/Mashable/Tech"},
-	"Hacker News": {url: "https://news.ycombinator.com/rss"},
-	"Hack a day": {url: "https://hackaday.com/blog/feed/"}
+	"Mashable": {url: "http://feeds.mashable.com/Mashable/Tech", color: "#F9F9F9"},
+	"Hacker News": {url: "https://news.ycombinator.com/rss", color: "#ff2000"},
+	"Hack a day": {url: "https://hackaday.com/blog/feed/", color: "#000000"}
 };
 
 chrome.storage.sync.get(function(data) {
